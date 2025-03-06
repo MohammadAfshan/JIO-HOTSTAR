@@ -1,0 +1,718 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JioHotstar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            }
+        body{
+            background-color: #000000;
+        }
+        .container{
+            width:100%;
+            height:100vh;
+        }
+        nav{
+            width:15vw;
+            height:100vh;
+            background-color: black;
+            color: grey;
+            font-size: 18px;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            position: fixed;
+            top:0;
+            left:0;
+        }
+        nav i:hover {
+            color: white;
+            cursor: pointer;
+        }
+        nav img{
+            cursor: pointer;
+        }
+        .jio{
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+        .nav-icons{
+            display: flex;
+            gap: 15px;
+            margin-left: 35px;
+        }
+        .p-tag{
+            color: white;
+            opacity: 0;
+            transition: 0.s all ease;
+        }
+        .icons:hover{
+            z-index: 20;
+            cursor: pointer;
+            background: linear-gradient(to left, transparent, black,black,black);
+            .p-tag{
+                opacity: 1;
+            }
+        }
+        .main {
+            width: 92vw;
+            min-height: 100vh;
+            background-color: black;
+            float: right;
+        }
+        .section1{
+            width:90%;
+            background: black; 
+            border-radius: 10px;
+            margin:10px;
+            display: flex;
+            gap:10px;
+            height:200px;
+        }
+        .left1{
+            width:50%;
+           
+        }
+        .bapu{
+            width:100%;
+            border-radius: 10px;
+            z-index:10;
+            position:relative;
+            max-height: 100%;
+        }
+        .right1{
+            width:35%;
+            color: white;
+            padding-top: 25px;
+            height:200px;
+        }
+        .right{
+            display: flex;
+            align-items: center;
+            gap:10px;
+            margin-bottom: 15px;
+        }
+        .hotstar{
+            border-radius: 3px;
+        }
+        .btn{
+            background-color: rgb(69, 64, 64);
+            border: none;
+            border-radius: 10px;
+            padding: 15px 40px ;
+            font-size: 21px;
+            color: white;
+            font-weight: 500;
+            margin-top: 10px;
+        }
+        .btn:hover{
+            background-color: rgb(132, 131, 131);
+            cursor:pointer;
+        }
+        
+        .sec2 {
+            min-height: 90vh;
+            background-color: black;
+        }
+
+        .movies {
+            width: 100%;
+            position: sticky;
+            top: 0px;
+        }
+
+        .movies:hover {
+            cursor: pointer;
+        }
+
+        .moviess {
+            width: 100%;
+            min-height: 200px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            bottom: 370px;
+            background: linear-gradient(to bottom, transparent, #00000079, #000000);
+        }
+
+        .new {
+            font-family: calibri;
+            color: rgb(70, 145, 250);
+            text-shadow: 0 0 20px black;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .three {
+            color: white;
+            font-family: calibri;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .ted1 {
+            color: white;
+            font-family: calibri;
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .drama {
+            color: white;
+            font-family: calibri;
+        }
+
+        .watch {
+            margin-top: 30px;
+            font-size: 15px;
+            text-shadow: 0 0 50px rgb(0, 0, 0);
+            padding: 10px;
+            width: 250px;
+            height: 50px;
+            border-radius: 7px;
+            border: none;
+            background: #009FFF;
+            background: -webkit-linear-gradient(to left, #ec2F4B, #009FFF);
+            background: linear-gradient(to left, #ec2F4B, #009FFF);
+            color: white;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+        .plus{
+      width: 49px;
+      height: 49px;
+      border: none;
+      border-radius: 10px;
+      background-color: rgba(119, 119, 119, 0.399);
+      padding-top: 0;
+      color: white;
+  }
+  .text{
+    color: white;
+    font-size: 25px;
+    padding-left: 20px;
+    margin-top: 50px;
+    position: relative;
+    bottom: 5px;
+
+  }
+  .latest{
+      background-color:black;
+    width: 100%;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+            overflow-x: scroll;
+            overflow-y: hidden;
+             height:auto;
+}
+.latest::-webkit-scrollbar {
+    display: none;
+}
+.boxes{
+            border-radius: 2px;
+            margin-left: 40px;
+            width: 200px;
+            border-radius: 7%;
+        }
+        .boxes:hover {
+            cursor: pointer;
+        }
+        .box:hover{
+        scale: 1.08;
+        transition: 0.8s;
+        }
+        .black{
+            background-color: black;
+            
+        }
+        .box{
+            position:relative;
+        }
+        .box1::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '1';
+        }
+        .box2::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '2';
+        }
+        .box3::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '3';
+        }
+        .box4::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '4';
+        }
+        .box5::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '5';
+        }
+        .box6::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '6';
+        }
+        .box7::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '7';
+        }
+        .box8::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '8';
+        }
+        .box9::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '9';
+        }
+        .box10::after{
+            position:absolute;
+            left:-30px;
+            bottom:-30px;
+            font-size: 100px;
+            font-weight: 700;
+            color: white;
+            content: '10';
+        }
+        .box:hover{
+            scale:1.1;
+            transition: 0.5s all ease;
+        }
+        .movies{
+            padding: 24px;
+            display: flex;
+            overflow: scroll;
+            gap: 40px;
+            position: relative;
+        }
+        .movies::-webkit-scrollbar {
+            display: none;
+        }
+        .studios{
+            margin: 8px;
+        }
+        .studios:hover {
+            scale: 1.1;
+            cursor: pointer;
+            border: 2px solid white;
+            transition: 0.5s all ease;
+            
+        }
+        .footer{
+            width: 100%;
+            background-color: black;
+            padding: 40px 20px;
+            position: relative;
+            bottom: 400px;
+        }
+        .footer-top{
+            display:flex;
+            justify-content: space-between;
+            color: white;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .f1{
+            display: flex;
+            flex-direction: column;
+            gap:20px;
+        }
+        .f1 p{
+            color: #bebebe;
+            font-size: 17px;
+            font-weight: 400;
+        }
+        .footer-bottom{
+            display: flex;
+            justify-content: space-between;
+            color: #bebebe;
+        }
+        .footer2{
+            display: flex;
+            gap:15px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="icons">
+            <img src="star.png" width="55px" alt="" class="jio">
+            <div class="nav-icons">
+                <i class="fa-solid fa-house"></i>
+                <p class="p-tag">Home</p>
+            </div>
+            <div class="nav-icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <p class="p-tag">Search</p>
+            </div>
+            <div class="nav-icons">
+                <i class="fa-solid fa-tv"></i>
+                <p class="p-tag">TV</p>
+            </div>
+            <div class="nav-icons">
+                <i class="fa-solid fa-bowl-food"></i>
+                <p class="p-tag">Movies</p>
+            </div>
+            <div class="nav-icons">
+                <i class="fa-solid fa-person-running"></i>
+                <p class="p-tag">Sports</p>
+            </div>
+            <div class="nav-icons">
+                <i class="fa-solid fa-video"></i>
+                <p class="p-tag">Sparks</p>
+            </div>
+            <div class="nav-icons">
+                <i class="fa-solid fa-table"></i>
+                <p class="p-tag">Categories</p>
+            </div>
+        </nav>
+         <div class="main">
+            <!-- section1 -->
+            <div class="section1"> 
+                <div class="left1">
+                    <img src="baapu.jpg" class="bapu" height="200px" alt="">
+                </div> 
+                <div class="right1">
+                    <div class="right">
+                       <img src="hlogo.png" height="50px" class="hotstar"alt="">
+                       <div class="lines">
+                         <h4>Baapu</h4>
+                         <p style="color: gray; font-size:16px;">Streaming from March 7</p>
+                       </div>
+                    </div> 
+                    <div class="rbottom">
+                        <p style="font-size:15px;">A dark comedy drama where village lifes harsh truths meet lively satire</p>
+                        
+                    </div> 
+                    <button class="btn" type="button">Trailer</button> 
+                </div>
+            </div>
+            <!-- section2 -->
+            <div class="sec2">
+                <img src="sarfira.webp" alt="" class="movies">
+                <div class="moviess">
+                    <img src="title.webp" alt="" width="250px">
+                    <p class="new">New Release</p>
+                    <b class="three ">2025 . U/A 16+ . 1 Season . 5 Languages</b>
+                    <div class="ted1">
+                        <p>Ted Black, a former federal prosecutor from New York,</p>
+                        <p>has reinvented himself representing the most powerful </p>
+                        <p>clients in Los Angeles.</p>
+                    </div>
+                    <b class="drama ">Drama | Dramedy | Court Drama | Celebrities</b>
+                   <div class="d-flex">
+                    <button class="watch">Watch Now</button>
+                    <button class="plus mx-3px">+</button>
+                    <!-- section2-2 -->
+<div class="black">
+    <div class="sec2-2">
+        <h1 class="text-light text head py-10px">Latest Releases</h1>
+        <div class="latest d-flex  ">
+          <div class=" box ">
+              <img src="lr1.avif" class="boxes"  alt="">
+          </div>
+          <div class=" box ">
+              <img src="lr7.avif"  class="boxes"  alt="">
+          </div>
+          <div class="box ">
+              <img src="lr3.avif" class="boxes" alt="">
+          </div>
+          <div class=" box ">
+              <img src="lr4.avif"class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="lr5.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="lr6.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="lr7.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="lr1.avif"   class="boxes" alt="">
+          </div>
+
+      </div>
+    </div>
+
+
+
+
+    <div class="sec2-2">
+        <h1 class="text-light text head py-10px">Non-Stop Sports</h1>
+        <div class="latest d-flex  ">
+          <div class=" box ">
+              <img src="sports1.avif" class="boxes"   alt="">
+              
+          </div>
+          <div class=" box ">
+              <img src="sports2.avif"  class="boxes"  alt="">
+          </div>
+          <div class="box ">
+              <img src="sports3.avif" class="boxes" alt="">
+          </div>
+          <div class=" box ">
+              <img src="sports4.avif"class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="sports5.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="sports6.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="sports7.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="sports8.avif"   class="boxes" alt="">
+          </div>
+
+      </div>
+    </div>
+
+
+
+
+
+
+     <!-- section-3 -->
+     <div class="section3">
+        <h1 class="text-light text head py-10px">Top 10 in India Today-Hindi</h1>
+        <div class="movies d-flex">
+            <div class="box box1">
+                <img src="top1.avif" alt="" class="movie" height="250px">
+            </div>
+            <div class="box box2">
+                <img src="top2.avif" alt="" class="movie" height="250px">
+            </div>
+            <div class="box box3">
+                <img src="top3.avif" alt="" class="movie" height="250px">
+            </div>
+            <div class="box box4">
+                <img src="top4.avif" alt="" class="movie" height="250px">
+            </div>
+            <div class="box box5">
+                <img src="top5.avif" alt="" class="movie" height="250px">
+            </div>
+            <div class="box box6">
+                <img src="top6.avif" alt="" class="movie" height="250px">
+            </div>
+            <div class="box box7">
+                <img src="top1.avif" alt="" class="movie" height="250px">
+            </div>
+            <div class="box box8">
+                <img src="top2.avif" alt="" class="movie" height="250px">
+            </div>
+            <div class="box box9">
+                <img src="top2.avif" alt="" class="movie" height="250px">
+            </div>
+            <div class="box box10">
+                <img src="top3.avif" alt="" class="movie" height="250px">
+            </div>
+        </div>
+    </div>
+
+    <div class="sec2-2">
+        <h1 class="text-light text head py-10px">Comedy Movies</h1>
+        <div class="latest d-flex  ">
+          <div class=" box ">
+              <img src="comedy 1.avif" class="boxes"   alt="">
+              
+          </div>
+          <div class=" box ">
+              <img src="comedy2.avif"  class="boxes"  alt="">
+          </div>
+          <div class="box ">
+              <img src="comedy3.avif" class="boxes" alt="">
+          </div>
+          <div class=" box ">
+              <img src="comedy4.jpg"class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="comedy 1.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="comedy2.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="comedy3.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="comedy4.jpg"   class="boxes" alt="">
+          </div>
+
+      </div>
+    </div>
+
+    
+    <div class="sec2-2">
+        <h1 class="text-light text head py-10px">Newly Added Shows for You</h1>
+        <div class="latest d-flex  ">
+          <div class=" box ">
+              <img src="new.avif" class="boxes"   alt="">
+              
+          </div>
+          <div class=" box ">
+              <img src="new1.jpg"  class="boxes"  alt="">
+          </div>
+          <div class="box ">
+              <img src="new2.jpg" class="boxes" alt="">
+          </div>
+          <div class=" box ">
+              <img src="new3.avif"class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="new5.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="new.avif"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="new1.jpg"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="new3.avif"   class="boxes" alt="">
+          </div>
+
+      </div>
+    </div>
+    
+    <div class="sec2-2">
+        <h1 class="text-light text head py-10px">Newly Added Shows for You</h1>
+        <div class="latest d-flex  ">
+          <div class=" box ">
+              <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/5598/1739441155598-a" alt="" width="180px" class="studios" class="boxes"   alt="">
+              
+          </div>
+          <div class=" box ">
+              <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/5223/1535223-a-292dbf42783d" alt="" width="180px" class="studios"  class="boxes"  alt="">
+          </div>
+          <div class="box ">
+              <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/5731/1739780835731-a" alt="" width="180px" class="studios" class="boxes" alt="">
+          </div>
+          <div class=" box ">
+              <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/5731/1739780835731-a" alt="" width="180px" class="studios"class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/7816/1739359307816-a" alt="" width="180px" class="studios"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1920/sources/r1/cms/prod/583/1739358280583-a" alt="" width="180px" class="studios"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1080/sources/r1/cms/prod/5224/1535224-a-1d1cfe20ffa3" alt="" width="180px" class="studios"  class="boxes" alt="">
+          </div>
+          <div class="box ">
+              <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1080/sources/r1/cms/prod/5226/1535226-a-3080287f77cd" alt="" width="180px" class="studios"   class="boxes" alt="">
+          </div>
+          <div class="box ">
+            <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1080/sources/r1/cms/prod/5228/1535228-a-fb6607a8214c" alt="" width="180px" class="studios" alt="" width="180px" class="series"  class="boxes" alt="">
+        </div>
+        <div class="box ">
+            <img src="https://img10.hotstar.com/image/upload/f_auto,q_90,w_1080/sources/r1/cms/prod/5225/1535225-a-58f3d258b91e" alt="" width="180px" class="studioa" alt="" width="180px" class="series"  class="boxes" alt="">
+        </div>
+
+      </div>
+    </div>
+    
+
+
+</div>
+
+                   </div>
+                   
+
+                  
+                </div>
+                 <!-- section10 -->
+ <div class="footer">
+    <div class="footer-top">
+        <div class="f1">
+            <h4>Company</h4>
+            <p>About Us</p>
+            <p>Careers</p>
+        </div>
+        <div class="f1">
+            <h4>View website in</h4>
+            <p>English</p>
+        </div>
+        <div class="f1">
+            <h4>Need Help?</h4>
+            <p>Visit Help Center</p>
+            <p>Share Feedback</p>
+        </div>
+        <div class="f1">
+            <h4>Connect with us</h4>
+            <p><i class="fa-brands fa-facebook"></i>      <i class="fa-brands fa-x-twitter"></i></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <div class="footer1">
+            <p>&copy; 2025 STAR. All Rights Reserved.</p>
+            <p>Terms Of Use  Privacy Policy  FAQ</p>
+        </div>
+        <div class="footer2">
+            <img src="google.webp" alt="" width="150px">
+            <img src="apple.webp" alt="" width="150px">
+        </div>
+    </div>
+</div>
+         </div>
+    </div>
+</body>
+</html>
